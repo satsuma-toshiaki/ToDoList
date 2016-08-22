@@ -2,17 +2,20 @@
 <html>
 <div align=center>
 <head>
+<br>
   <title>ToDoList</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <font size="7" color="red">To Do List</font><br><br>
-  <%= link_to 'タスク一覧', tasks_path %>  |
-  <%= link_to 'カテゴリー一覧', categories_path %>  |
-  <%= link_to 'ユーザー一覧', users_path %><br>
+<font size="7" color="black">ToDoList</font><br>
+
 </head>
-<body style="background-color: khaki">
+<body style="background-color: white">
 <%= yield %>
+</br>
+  <%= link_to 'ユーザー一覧', users_path %>
+  <%= link_to 'カテゴリー一覧', categories_path %>  
+  <%= link_to 'タスク一覧', tasks_path %>  
 </body>
 </div>
 </html>

@@ -1,28 +1,22 @@
-<br>
-　　　　　　　　　　　　　
-<%= link_to 'ユーザー登録', new_user_path %>
-<p id="notice"><%= notice %></p>
-<font size="5" color="blue">ユーザー一覧</font>
-<br><br>
-
 <%= form_tag(:action=>'search') do %>
   <%= text_field_tag "search[username]", @search_value %>
   <%= submit_tag "検索" %>
   <%= link_to "リセット", users_path %>
 <% end %>
 <br>
-
-<table style="background-color: peru">
+<p id="notice"><%= notice %></p>
+<font size="5" color="black">ユーザー一覧</font>
+<table style="background-color: white">
   <thead>
     <tr>
-      <th><font size="4">ユーザーid</font></th>
-      <th><font size="4">ユーザー名</font></th>
-      <th><font size="4">パスワード</font></th>
+      <th><font size="3">ユーザーid</font></th>
+      <th><font size="3">ユーザー名</font></th>
+      <th><font size="3">パスワード</font></th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody style="background-color: aquamarine">
+  <tbody style="background-color: white">
     <% @users.each do |user| %>
       <tr>
         <td><%= user.userid %></td>
@@ -30,8 +24,11 @@
         <td><%= user.password %></td>
         <td><%= link_to '詳細', user %></td>
         <td><%= link_to '編集', edit_user_path(user) %></td>
-        <td><%= link_to '削除', user, method: :delete, data: { confirm: '削除してもよろしいですか？?' } %></td>
+        <td><%= link_to '削除', user, method: :delete, data: { confirm: '削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<br>
+<%= link_to 'ユーザー登録', new_user_path %>
+<br>

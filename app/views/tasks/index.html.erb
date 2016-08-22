@@ -1,38 +1,34 @@
 <br>
-<%= link_to 'タスク登録', new_task_path %>
-　　　　　　　　　　　　　　
-<p id="notice"><%= notice %></p>
-<font size="5" color="blue">タスク一覧</font>
-<br><br>
-
 <%= form_tag(:action=>'search') do %>
-  <%= collection_select 'search', 'user', User.all, :id, :username, {selected: @search_user, include_blank: "全員"} %>
-  <%= collection_select 'search', 'category', Category.all, :id, :categoryname, {selected: @search_category, include_blank: "全カテゴリー"} %>
+  <%= collection_select 'search', 'user', User.all, :id, :username, {selected: @search_user, include_blank: "すべてのユーザー"} %>
+  <%= collection_select 'search', 'category', Category.all, :id, :categoryname, {selected: @search_category, include_blank: "すべてのカテゴリー"} %>
   <%= text_field_tag "search[name]", @search_value %>
   <%= submit_tag "検索" %>
   <%= link_to "リセット", tasks_path %>
 <% end %>
-
-<table style="background-color: orange">
+<br>
+<p id="notice"><%= notice %></p>
+<font size="5" color="black">タスク一覧</font>
+<table style="background-color: white">
   <thead>
     <tr>
-      <th><font size="4">状態</font></th>
-      <th><font size="4">期日</font></th>
-      <th><font size="4">タスク名</font></th>
-      <th><font size="4">カテゴリー</font></th>
-      <th><font size="4">ユーザー</font></th>
+      <th><font size="3">状態</font></th>
+      <th><font size="3">期日</font></th>
+      <th><font size="3">タスク名</font></th>
+      <th><font size="3">カテゴリー</font></th>
+      <th><font size="3">ユーザー</font></th>
       <th colspan="3"></th><br>
     </tr>
   </thead>
 
-  <tbody style="background-color: greenyellow">
+  <tbody style="background-color: white">
     <% @tasks.each do |task| %>
       <tr>
         <td>
         <% if task.done == true %>
           <font color="red">作業中</font>
         <% else %>
-          <font color="darkgreen">終了</font>
+          <font color="blue">終了</font>
         <% end %>
         </td>
         <td><%= task.due_date %></td>
@@ -46,3 +42,6 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<%= link_to 'タスク登録', new_task_path %>
+<br>
