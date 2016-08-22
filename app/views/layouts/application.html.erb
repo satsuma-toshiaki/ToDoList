@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
+<div align=center>
 <head>
   <title>ToDoList</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <font size="7" color="red">To Do List</font><br><br>
+  <%= link_to 'タスク一覧', tasks_path %>  |
+  <%= link_to 'カテゴリー一覧', categories_path %>  |
+  <%= link_to 'ユーザー一覧', users_path %><br>
 </head>
-<body>
-
+<body style="background-color: khaki">
 <%= yield %>
-
 </body>
+</div>
 </html>

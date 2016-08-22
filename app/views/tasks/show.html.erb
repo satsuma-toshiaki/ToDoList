@@ -1,29 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Due date:</strong>
+  <strong>期日:</strong>
   <%= @task.due_date %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @task.category_id %>
+  <strong>カテゴリー:</strong>
+  <%= @task.category.categoryname %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>タスク名:</strong>
   <%= @task.name %>
 </p>
 
 <p>
-  <strong>Done:</strong>
-  <%= @task.done %>
+  <strong>状態:</strong>
+  <% if @task.done == true %>
+    <font color="red">作業中</font>
+    <% else %>
+    <font color="darkgreen">終了</font>
+  <% end %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @task.user_id %>
+  <strong>ユーザー:</strong>
+  <%= @task.user.username %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to '編集', edit_task_path(@task) %> |
+<%= link_to 'タスク一覧', tasks_path %>
